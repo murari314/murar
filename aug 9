@@ -1,0 +1,137 @@
+
+public class binaryGap {
+	public int solution(int N) {
+
+		
+		if(N < 1)
+            return -1;    
+        int r = 0;
+        int gapLength = 0;
+        boolean binaryGapStart = false;
+        boolean gapOfZeroes = false;           
+        while(N >= 1) {
+            if(N%2 == 1) {
+                binaryGapStart = binaryGapStart && gapOfZeroes;              
+                if(binaryGapStart) {
+                    r = (r > gapLength)? r:gapLength;
+                    gapOfZeroes = false;
+                    gapLength = 0;
+                }
+                else
+                    binaryGapStart = true;
+            }
+            else{
+                gapOfZeroes = binaryGapStart;
+                if(gapOfZeroes)
+                    gapLength++;
+            }           
+            N = N/2;
+        }       
+        return r;   
+	}
+}
+-----------------------------------------------------------------------------------------------------
+
+public class UserProfileCreation {
+	public static void main(String[] str){
+	UserProfile myuserProfile=new UserProfile();
+	myuserProfile.age=24;
+	myuserProfile.firstName="Bharat";
+	myuserProfile.lastName="Murari";
+	myuserProfile.gender="Male";
+	myuserProfile.emailId="murari314@gmail.com";
+	
+	int  userProfile= myuserProfile.age;
+		
+	UserProfile myuserProfile1=new UserProfile();
+	myuserProfile1.age=45;
+	myuserProfile1.firstName="Abhishek";
+	myuserProfile1.lastName="Nalla";
+	myuserProfile1.gender="Male";
+	myuserProfile1.emailId="ab22@gmail.com";
+	}
+}
+----------------------------------------------------------------------------------------
+
+public class UserProfile {
+	String lastName;
+	String firstName;
+	String gender;
+	String emailId;
+	int age;{
+	
+		
+		
+			if (age<=19){
+				System.out.println("Teenage");
+			}if(age>=20 && age<=28);{
+				System.out.println("Middleage");
+			}if(age<=29){
+				System.out.println("Oldage");
+			}
+			
+		}
+	}
+----------------------------------------------------------------------------------------
+
+public class Create {
+public static void main(String[] str){
+	Car myCar=new Car();
+	myCar.color="Blue";
+	myCar.make="BMW";
+	myCar.gasCapacity=25;
+	myCar.milesPerGal=36;
+	myCar.model="x6";
+	myCar.noDoors=2;
+	myCar.noSeats=4;
+	
+	int maxMiles=myCar.getMaxDistanceTravelOnFill();
+	System.out.println("BMW:"+maxMiles);
+	
+	Car myCar1=new Car();
+
+	myCar1.color="Blue";
+	myCar1.make="Merc";
+	myCar1.gasCapacity=29;
+	myCar1.milesPerGal=38;
+	myCar1.model="GLC300";
+	myCar1.noDoors=4;
+	myCar1.noSeats=5;
+	
+    maxMiles=myCar.getMaxDistanceTravelOnFill();
+	System.out.println("Merc:"+maxMiles);
+	myCar.PrintType();
+	myCar1.PrintType();
+
+	
+
+}
+
+	
+}
+
+-------------------------------------------------------------------------------------------------------------------------
+
+public class Car {
+	int noDoors;
+	int noSeats;
+	int milesPerGal;
+	int gasCapacity;
+	String color;
+	String make;
+	String model;
+	 public int getMaxDistanceTravelOnFill(){
+		 
+		 int maxDistance=gasCapacity*milesPerGal;
+		 return maxDistance;
+	 }
+public void PrintType(){
+	if (noDoors==4){
+		System.out.println("Sedan");
+	}else if(noDoors==2){
+		System.out.println("Coupe");
+		
+	}
+}
+}
+------------------------------------------------------------------------------------------------------------
