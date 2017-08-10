@@ -1,0 +1,43 @@
+
+public class Calculator {
+public int add(int a,int b){
+	int result=a+b;
+return result;
+}
+public int multi(int x,int y){
+	int result=x*y;
+	return result;
+}
+public int sub(int o,int p){
+	int result= o-p;
+	return result;
+}
+public double div(int c,int d){
+	double result=c/d;
+	return (double)result;
+}
+}
+---
+public class CalculatorCreate {
+	public static void main(String[] args) {
+		Calculator cal= new Calculator();
+	System.out.println(cal.add(5,6));
+	System.out.println(cal.sub(5,6));
+	System.out.println(cal.multi(5,6));
+	System.out.println(cal.div(5,2));
+		
+	}
+}
+
+------------------------------------------------------------
+Codelity--Arrays
+class Solution {
+    public int[] solution(int[] A, int K) {
+        int[] s=new int[A.length];
+        for(int i=0;i<A.length;i++){
+            int t=(i+K)%A.length;
+            s[t]=A[i];
+        }
+            return s;
+    }    
+------------------------------------------------------------------
