@@ -1,0 +1,29 @@
+Arrays:
+Sol 2:
+class Solution {
+    public int solution(int[] A) {
+        int result=0;
+        int arraylength= A.length;
+        if (arraylength>0) {
+            result=A[0];
+            for(int i=1;i<arraylength;i++){
+                result^=A[i];
+            }
+        }
+        return result;
+                
+    // write your code in Java SE 8
+    }
+}
+----------------------------------------------------------------------------------------------------------------------
+Time complexity:
+PermMissingElem:
+class Solution {
+    public int solution(int[] A) {
+        long nPlusOneSum = (A.length + 2) * (A.length + 1) / 2;
+        long arraySum = 0;
+        for (int element : A)
+            arraySum += element;
+        return (int)(nPlusOneSum - arraySum);
+    }
+}
