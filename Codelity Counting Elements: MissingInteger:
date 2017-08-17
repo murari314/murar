@@ -1,0 +1,16 @@
+‎Counting Elements:
+MissingInteger:
+class Solution {
+    public int solution(int[] A) {
+        boolean[] counter = new boolean[A.length + 1];
+        
+        for(int i = 0; i < counter.length; i++) {counter[i] = false;
+        }
+        for(int a : A) {if (a > 0 && a < counter.length) counter[a - 1] = true;
+        }
+        for(int j = 0; j < counter.length; j++){ if(!counter[j]) return j + 1;
+        }
+        return A.length + 1;
+        // write your code in Java SE 8
+    }
+}
