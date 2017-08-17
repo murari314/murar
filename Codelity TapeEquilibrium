@@ -1,0 +1,36 @@
+Time complexity:
+TapeEquilibrium:
+import java.math.*;
+import java.util.*;
+import java.lang.*;
+
+class Solution {
+    public int solution(int[] A) {
+        int sizeOfArray = A.length;
+        int smallest = Integer.MAX_VALUE;
+        int  result = 0;
+        for(int i=1;i<sizeOfArray;i++){
+            int difference = Math.abs(sumOfArray(subArray(0,i,A))-
+            sumOfArray(subArray(i,sizeOfArray,A)));
+            
+            result = Math.min(smallest,difference);
+            smallest = result;
+        }
+
+        return result;
+    }
+
+    public int sumOfArray(int[] arr) {
+        int sum=0;
+        for(int i:arr) {
+            sum += i;
+        }
+
+        return sum;
+    }
+
+    public int[] subArray(int begin, int end, int[] array) {
+        return Arrays.copyOfRange(array, begin, end);
+        // write your code in Java SE 8
+    }
+}
