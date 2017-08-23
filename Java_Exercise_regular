@@ -1,0 +1,444 @@
+
+public class smallestNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int firstNumber=25;
+int secondNumber=37;
+int thirdNumber=29;
+if (firstNumber<secondNumber){
+	if (firstNumber<thirdNumber){
+		System.out.println("firstNumber is smallest");
+	}
+	else{ 
+		System.out.println("thirdNumber");
+	}}
+	else{
+		if(secondNumber<thirdNumber){
+			System.out.println("secondNumber is smallest");
+		}
+		else{
+			System.out.println("thirdNumber is smallest");
+		}
+		
+	}
+
+	
+
+}}
+Output: firstNumber is smallest
+-------------------------------------------------------------------------------------------------------------------
+
+public class AverageOfThreeNumbers {
+	 public static void main(String[] args) {
+		 int a=25;
+		 int b=45; 
+		 int c=65;
+		 int average;
+		 
+		 average = ( a + b + c ) / 3;
+		 System.out.println(" Average : "+average);
+}
+}
+Output: Average : 45
+--------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class MiddleString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		{
+	        Scanner in = new Scanner(System.in);
+	        System.out.print("Enter a string: ");
+	        String str= in.next();
+	        
+	        int position;
+	        int length;
+	        
+	        if(str.length()% 2 ==1){
+	        	position=str.length()/2;
+	        	length=1;
+	        }
+	        else{
+	        	position=str.length()/2 -1;
+	        	length=2;
+	        }
+	        String result= str.substring(position,position+length);
+	        System.out.println("Middle:"+result);
+	}
+
+}
+}
+-----------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class vowelString {
+  public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input the string: ");
+        String str = in.nextLine();
+
+        System.out.print("Number of  Vowels in the string: " + count_Vowels(str)+"\n");
+    }
+ public static int count_Vowels(String str)
+    {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i'
+                    || str.charAt(i) == 'o' || str.charAt(i) == 'u')
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+Output:
+Input the string: W3resource
+Number of  Vowels in the string: 4
+-----------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class WordString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner in= new Scanner(System.in);
+System.out.println("Enter the sentence: ");
+String s=in.nextLine();
+System.out.println("Size of the string:"+ + count_Words(s)+"\n");
+	}
+public static int count_Words(String s)
+{
+   int count = 0;
+    //if (!(" ".equals(s.substring(0, 1)))|| (" ".equals(s.substring(0,1))) )
+    	if (!(" ".equals(s.substring(0, 1)))|| (" ".equals(s.substring(0,1))) )
+    {
+        for (int i = 1; i < s.length()-1; i++)
+        {
+            if (s.charAt(i) == ' ')
+            {
+                count++;
+            }
+        }
+        count = count + 1; 
+    }
+    return count;
+	}
+
+
+}
+Output:
+Enter the sentence: 
+The quick brown fox jumps over the lazy dog
+Size of the string:9
+---------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class SumDigitInteger {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner in=new Scanner(System.in);
+System.out.println("Enter the Integer:");
+int digits=in.nextInt();
+System.out.println("The sum:"+ sumDigits(digits));
+	}
+public static int sumDigits(long n){
+	int result=0;
+	while(n>0){
+		result+=n%10;
+		n/=10;
+	}
+	return result;
+}
+}
+Output:
+Enter the Integer:
+25
+The sum:7
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+public class PentagonalNumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 System.out.println("The first 50 pentagonal number are:");
+	        for (int i = 1; i < 51; i++){
+	            System.out.printf("%7d ", getPentagonalNumber(i));
+	            if (i % 10 == 0)
+	                System.out.println();
+	        }
+	    }
+
+	    public static int getPentagonalNumber(int n){
+	        return (n * (3 * n - 1)) / 2;
+	}
+
+}
+Output:
+The first 50 pentagonal number are:
+      1       5      12      22      35      51      70      92     117     145 
+    176     210     247     287     330     376     425     477     532     590 
+    651     715     782     852     925    1001    1080    1162    1247    1335 
+   1426    1520    1617    1717    1820    1926    2035    2147    2262    2380 
+   2501    2625    2752    2882    3015    3151    3290    3432    3577    3725 
+---------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class FutureInvestment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner in= new Scanner(System.in);
+System.out.println("Enter Investment amount:");
+double investmentAmount= in.nextDouble();
+System.out.println("Enter Interest rate:");
+double interestRate= in.nextDouble()/100;
+System.out.println("number of years:");
+int years=in.nextInt();
+System.out.printf("%3s%20s\n", "Years", "Future Value");
+for (int i = 1; i <= years; i++) {
+
+    System.out.printf("%-4d%20.2f\n", i, futureInvestment(investmentAmount, interestRate / 12, i));
+
+	}
+
+}
+	 public static double futureInvestment
+     (double investmentAmount, double monthlyInterestRate, int years) {
+
+ return investmentAmount *  Math.pow((1 + monthlyInterestRate), (years * 12));
+}
+}
+Output:
+Enter Investment amount:
+1000
+Enter Interest rate:
+10
+number of years:
+5
+Years        Future Value
+1                1104.71
+2                1220.39
+3                1348.18
+4                1489.35
+5                1645.31
+-----------------------------------------------------------------------------------------------------------------------------
+
+public class BetweenTwoCharacters {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 print_Chars('(', 'z', 20);
+    }
+ public static void print_Chars(char char1, char char2, int n) {
+        for (int ctr = 1; char1 <= char2; ctr++, char1++) {
+            System.out.print(char1 + " ");
+            if (ctr % n == 0) System.out.println("");
+        }
+		System.out.print("\n");
+	}
+
+}
+Output:
+( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; 
+< = > ? @ A B C D E F G H I J K L M N O 
+P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c 
+d e f g h i j k l m n o p q r s t u v w 
+x y z 
+------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class LeapYear {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		   Scanner input = new Scanner(System.in);
+	        System.out.print("Input a year: ");
+	        int year = input.nextInt();
+
+	        System.out.println(is_LeapYear(year));
+	    }
+	 
+	 public static boolean is_LeapYear(int y)
+	    {
+	        boolean a = (y % 4) == 0;
+	        boolean b = (y % 100) != 0;
+	        boolean c = ((y % 100 == 0) && (y % 400 == 0));
+
+	        return a && (b || c);
+	}
+
+}
+Output:
+Input a year: 2017
+false
+-----------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class PasswordCheck{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+        System.out.print(
+                "1. A password must have at least eight characters.\n" +
+                "2. A password consists of only letters and digits.\n" +
+                "3. A password must contain at least two digits \n" +
+                "Input a password : ");
+        String s = input.nextLine();
+
+        if (is_Valid_Password(s)) {
+            System.out.println("Password is valid: " + s);
+        } else {
+            System.out.println("Not a valid password: " + s);
+        }
+
+    }
+	public static final int PASSWORD_LENGTH = 8;
+
+    public static boolean is_Valid_Password(String password) {
+
+        if (password.length() < PASSWORD_LENGTH) return false;
+
+        int charCount = 0;
+        int numCount = 0;
+        for (int i = 0; i < password.length(); i++) {
+
+            char ch = password.charAt(i);
+
+            if (is_Numeric(ch)) numCount++;
+            else if (is_Letter(ch)) charCount++;
+            else return false;
+        }
+
+
+        return (charCount >= 2 && numCount >= 2);
+    }
+
+    public static boolean is_Letter(char ch) {
+        ch = Character.toUpperCase(ch);
+        return (ch >= 'A' && ch <= 'Z');
+    }
+
+
+    public static boolean is_Numeric(char ch) {
+
+        return (ch >= '0' && ch <= '9');
+	}
+}
+Output:
+1. A password must have at least eight characters.
+2. A password consists of only letters and digits.
+3. A password must contain at least two digits 
+Input a password : abcd1234
+Password is valid: abcd1234
+---------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class nbynMatrix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = input.nextInt();
+        new nbynMatrix().printMatrix(n);
+    }
+
+    public void printMatrix(int n){
+        for (int x = 0; x < n; x++){
+            for (int y = 0; y < n; y++){
+                System.out.print((int)(Math.random() * 2)+ "");
+            }
+            System.out.println();
+        }
+	}
+
+}
+Output:
+Enter n: 10
+1100010010
+0010011111
+1110111111
+0100110100
+0101110110
+1110011011
+0000111110
+1010110010
+1101100001
+1100000001
+----------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+//import java.lang.Math;
+public class AreaOfTriangle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+		Scanner in = new Scanner(System.in);
+        System.out.print("Input Side-1: ");
+        double side1 = in.nextDouble();
+        System.out.print("Input Side-2: ");
+        double side2 = in.nextDouble();
+        System.out.print("Input Side-3: ");
+        double side3 = in.nextDouble();
+        System.out.println( is_Valid(side1, side2,side3) ?
+               "The area of the triangle is " + area_triangle(side1, side2, side3) : "Invalid triangle" );
+   }
+
+ public static boolean is_Valid(double side1, double side2, double side3) {
+       if( side1 + side2 > side3 &&
+               side2 + side3 > side1 &&
+               side1 + side3 > side2) return true;
+       else return false;
+   }
+  public static double area_triangle(double side1, double side2, double side3) {
+       double area = 0;
+       double s = (side1 + side2 + side3)/2;
+       area = Math.sqrt(s*(s - side1)*(s - side2)*(s - side3));
+       return area;
+	}
+
+}
+Output:
+Input Side-1: 10
+Input Side-2: 15
+Input Side-3: 20
+The area of the triangle is 72.61843774138907
+------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class AreaOfPentagon {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+
+        double area; 
+        final double PI;   
+        double side;  
+        int n;
+
+        PI = Math.PI;
+
+        System.out.println("Enter the number of sides: ");
+        n = scanner.nextInt();
+
+        scanner.nextLine();
+
+        System.out.println("Enter the side: ");
+        side = scanner.nextDouble();
+
+        area = (n * (side * side)) / (4 * (Math.tan(PI/n)));
+
+        System.out.println("The area of the polygon is " + area);
+
+	}
+
+}
+Output:
+Enter the number of sides: 
+5
+Enter the side: 
+6
+The area of the polygon is 61.93718642120281
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
