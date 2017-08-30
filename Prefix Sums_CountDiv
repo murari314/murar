@@ -1,0 +1,30 @@
+Prefix Sums:
+CountDiv:
+class Solution {
+    public int solution(int A, int B, int K) {
+        // write your code in Java SE 8
+        int result;
+        int toAdd = 0;
+        int lowerValue = 0;
+        int upperValue = 0;
+        if (A % K == 0) {
+            lowerValue = A;
+            toAdd = 1;
+        } else {
+            lowerValue = A - A % K + K;
+            if ((lowerValue - A % K) >= 0 ) {
+                toAdd = 1;
+            }
+        }
+
+        if (B % K == 0) {
+            upperValue = B;
+        } else {
+            upperValue = B - B % K;
+        }
+
+        result = (upperValue - lowerValue) / K + toAdd;
+
+        return result;
+    }
+}
