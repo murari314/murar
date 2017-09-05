@@ -1,0 +1,32 @@
+Sorting:
+Triangle:
+import java.util.*;
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        Arrays.sort(A);
+        int hasTriangular = 0;
+        if (A.length < 3) {
+            hasTriangular = 0;
+        }
+        else {
+            int P = 0;
+            int Q = 1;
+            int R = 2;
+            
+            for(int i= 2; i<A.length; i++) {
+                if((long) A[P]+ (long) A[Q]> (long)A[R]) {
+                    hasTriangular = 1;
+                    break;
+                }
+                else {
+                    P++;
+                    Q++;
+                    R++;
+                }   
+            }
+        }
+        
+        return hasTriangular;
+    }
+}
