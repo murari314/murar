@@ -1,0 +1,13 @@
+Sorting:
+Distinct:
+import java.util.\*;
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+         HashSet<Integer> distinctMap = new HashSet<Integer>();
+        for(int a: A){
+            distinctMap.add(a);
+        }
+        return distinctMap.size();
+    }
+}
