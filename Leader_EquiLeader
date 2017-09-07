@@ -1,0 +1,61 @@
+Leader:
+EquiLeader:
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        Integer[] equi = findEquiLeader(A);
+  if (equi == null){
+      return 0;
+  }
+  else {
+   int equiLeader = equi[0];
+   int count = equi[1];
+   int startCount = 0;
+   int equileaderCount = 0;
+   for (int i = 0; i < A.length; i++) {
+    if (A[i] == equiLeader) startCount++;
+
+    if (startCount > (i + 1) / 2 && (count - startCount) > (A.length - (i + 1)) / 2) {
+     equileaderCount++;
+    }
+   }
+   return equileaderCount;
+  }
+
+ }
+ private Integer[] findEquiLeader(int[] A) {
+  int len = A.length;
+  int size = 0;
+  Integer value = null;
+  for (int i = 0; i < A.length; i++) {
+   if (size == 0) {
+    value = A[i];
+    size++;
+   } else {
+    if (value == A[i]) {
+     size++;
+    } else {
+     size--;
+    }
+   }
+  }
+  if (size > 0) {
+   int count = 0;
+   for (int i: A) {
+    if (i == value) count++;
+   }
+   if (count > A.length / 2) {
+
+
+    return new Integer[] {
+     value, count
+    };
+
+   }
+
+
+  }
+
+  return null;
+    }
+}
