@@ -1,0 +1,46 @@
+Prime and composite numbers:
+Flags:
+import java.util.*;
+
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+         ArrayList<Integer> array = new ArrayList<Integer>();  
+    for (int i = 1; i < A.length - 1; i++) {  
+        if (A[i-1]<A[i] && A[i+1]<A[i]) {  
+            array.add(i);  
+        }  
+    }  
+    if (array.size() == 1 || array.size() == 0) {  
+        return array.size();  
+    }  
+    
+    int flag = 1;  
+    int result = 1;  
+    while (flag <= array.size()) {  
+        boolean success = false;  
+        int used = 0;  
+        int mark = array.get(0);  
+        for (int i = 0; i < array.size(); i++) {  
+            if (array.get(i) >= mark) {  
+                used++;  
+                mark = array.get(i) + flag;  
+                
+                    if (used == flag) {                       
+                        success = true;  
+                        break;  
+                    }  
+            }  
+        }
+        
+        if (success) {  
+            result = flag;  
+            flag++;  
+        } 
+        else {  
+            break;
+        }  
+    }  
+   return result;  
+    }
+}
