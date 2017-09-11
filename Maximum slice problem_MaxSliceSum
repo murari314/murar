@@ -1,0 +1,13 @@
+Maximum slice problem: 
+MaxSliceSum:
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+    int maxEndingHere = A[0];
+    int maxSoFar = A[0];
+    for(int i = 1; i < A.length; i++){
+        maxEndingHere = Math.max(A[i], maxEndingHere + A[i]);
+        maxSoFar = Math.max(maxSoFar, maxEndingHere);
+    }
+    return maxSoFar;
+}}
