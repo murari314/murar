@@ -1,0 +1,51 @@
+Sieve of Eratosthenes:
+CountSemiprimes:
+class Solution {
+    public int[] solution(int N, int[] P, int[] Q) {
+        // write your code in Java SE 8
+        int[] F = new int[N+1];
+        for (int i = 1; i < F.length; i++) {
+            F[i] = 0;
+        }
+        int i = 2;
+        while (i*i <= N) {
+            if (F[i] == 0) {
+                int k = i * i;
+                while (k <= N) {
+                    if (F[k] == 0)
+                        F[k] = i;
+                    k+=i;
+                }
+            }
+            i++;
+        }
+        
+        int[] semiPrimSum = new int[N+1];
+        for (int j = 1; j <= N; j++) {
+		semiPrimSum[j] = semiPrimSum[j-1];
+		if (isSemiPrim(j, F)) {
+			semiPrimSum[j]+=1;
+		}
+	}
+
+        int[] ret = new int[P.length];
+        for (int j = 0; j < P.length; j++) {
+		ret[j] = semiPrimSum[Q[j]] - semiPrimSum[P[j]-1];
+        }
+
+        return ret;
+    }
+
+    private boolean isSemiPrim(int num, int[] F) {
+        if (F[num]==0) return false;
+        return F[num/F[num]] == 0;
+    }
+
+    public static void main(String[] args) {
+		int[] P={1, 4, 16};
+		int[] Q={26, 10, 20};
+		int[] ret = new Solution().solution(26, P, Q);
+		for (int t : ret) {
+			System.out.print(t+" ");
+    }
+}} 
