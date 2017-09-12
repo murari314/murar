@@ -1,0 +1,40 @@
+Sieve of Eratosthenes:
+CountNonDivisible:
+class CountNonDivisibleSolution {
+    public int[] solution(int[] A) {
+        int N = A.length<<1;
+        int[] mark = new int[N+1];
+        for (int i = 0; i < A.length; i++) {
+            mark[A[i]]++;
+        }
+
+        int[] divisorCount = new int[N+1];
+        for (int i = 0; i < A.length; i++) {
+            if (mark[A[i]] > 0) {
+                int k = A[i];
+                while (k <= N) {
+                    divisorCount[k] += mark[A[i]];
+                    k += A[i];
+                }
+                mark[A[i]] = 0;
+            }
+        }
+
+        int[] ret = new int[A.length];
+        for (int i = 0; i < ret.length; i++) {
+            ret[i] = A.length - divisorCount[A[i]];
+        }
+
+        return ret;
+    }
+
+
+    public static void main(String[] args) {
+		int[] P={3, 1, 2, 3, 6};
+		int[] ret = new CountNonDivisibleSolution().solution(P);
+		for (int t : ret) {
+			System.out.print(t+" ");
+		}
+		
+    }
+}
