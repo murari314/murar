@@ -1,0 +1,20 @@
+Greedy algorithms:
+MaxNonoverlappingSegments:
+
+class Solution {
+    public int solution(int[] A, int[] B) {
+        // write your code in Java SE 8
+         if (A.length == 0) {
+            return 0;
+        }
+        int result = 0;
+        int besti = 0;
+        for (int i = 1; i < A.length; i++) {
+            if (A[i] > B[besti]) {
+                result++;
+                besti = i;
+            }
+        }
+        return result + 1;
+    }
+}
